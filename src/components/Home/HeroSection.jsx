@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../Header/Navbar';
 import heroImg from '../../assets/hero-image.png';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+
+  const handleSearch = () => {
+    if (query.trim()) {
+      navigate(`/courses?q=${encodeURIComponent(query.trim())}`);
+    } else {
+      navigate('/courses');
+    }
+  };
   return (
     <div className="relative bg-[#0341FF] min-h-[900px] overflow-hidden text-white pb-0" style={{ background: '#0341FF' }}>
 
@@ -74,7 +85,6 @@ const HeroSection = () => {
           Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
         </p>
 
-        {/* Search bar */}
         <div className="flex bg-white rounded-full py-2 pl-6 pr-2 max-w-[540px] mx-auto items-center shadow-2xl relative z-30 mb-0">
           <svg className="shrink-0 mr-3 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none">
             <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10Z"
@@ -82,10 +92,15 @@ const HeroSection = () => {
           </svg>
           <input
             type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             placeholder="Course, topic, creator"
             className="border-none outline-none w-full text-[15px] text-gray-700 placeholder:text-gray-400 bg-transparent"
           />
-          <button className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 border-none py-3 px-8 rounded-full text-[15px] font-bold cursor-pointer transition-colors duration-200 whitespace-nowrap">
+          <button
+            onClick={handleSearch}
+            className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 border-none py-3 px-8 rounded-full text-[15px] font-bold cursor-pointer transition-colors duration-200 whitespace-nowrap">
             Search
           </button>
         </div>

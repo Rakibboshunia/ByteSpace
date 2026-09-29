@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const paths = [
   {
@@ -76,10 +77,10 @@ const LearningPaths = () => {
           potential and explore our carefully curated categories.
         </p>
 
-        {/* Cards row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
           {paths.map((path, idx) => (
-            <div
+            <Link
+              to="/courses"
               key={idx}
               className="flex flex-col items-center gap-5 bg-white border border-gray-200 rounded-[20px] py-8 px-4 cursor-pointer
                          hover:shadow-lg hover:border-[#CEFF00] transition-all duration-300 group"
@@ -92,7 +93,7 @@ const LearningPaths = () => {
               <span className="font-semibold text-gray-800 text-[15px] group-hover:text-[#0341FF] transition-colors">
                 {path.name}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

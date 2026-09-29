@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
@@ -65,9 +66,11 @@ const CTASection = () => {
           part of a community comprising over 10,000 local and international creators. Utilize our Course Editor, and showcase your
           expertise by publishing your finest course on the ByteSpace Course Library.
         </p>
-        <button className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 border-none py-4 px-12 rounded-full text-[16px] font-bold cursor-pointer transition-colors duration-200 shadow-lg">
-          Join as Creator
-        </button>
+        <Link to="/signup">
+          <button className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 border-none py-4 px-12 rounded-full text-[16px] font-bold cursor-pointer transition-colors duration-200 shadow-lg">
+            Join as Creator
+          </button>
+        </Link>
       </div>
     </div>
   );

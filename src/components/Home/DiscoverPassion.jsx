@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import img1 from '../../assets/01.jpg';
 import img2 from '../../assets/02.jpg';
@@ -109,80 +110,82 @@ const categories = [
 ];
 
 /* ── Course Card ── */
-const CourseCard = ({ course }) => (
-  <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer">
-    {/* Thumbnail */}
-    <div className="h-[195px] relative w-full overflow-hidden bg-gray-200">
-      {course.img && (
-        <img src={course.img} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-      )}
-      <div className="absolute bottom-0 left-0 right-0 px-3 pb-3 flex gap-2">
-        {[course.lessons, course.duration, course.comments].map((label, i) => (
-          <span
-            key={i}
-            className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-medium whitespace-nowrap"
-          >
-            {label}
-          </span>
-        ))}
-      </div>
-    </div>
+const CourseCard = ({ course }) => {
+  const generateSlug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+  const courseSlug = generateSlug(course.title);
 
-    {/* Body */}
-    <div className="p-5 flex-1 flex flex-col">
-      {/* Title + Rating */}
-      <div className="flex items-start justify-between gap-3 mb-1">
-        <h3 className="font-bold text-[16px] text-gray-900 leading-snug group-hover:text-[#0341FF] transition-colors line-clamp-2 flex-1">
-          {course.title}
-        </h3>
-        <div className="flex items-center gap-1 shrink-0 text-[13px] text-gray-600 font-medium">
-          {course.rating}
-          <svg className="w-3.5 h-3.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Author */}
-      <p className="text-[12px] text-gray-400 mb-4">
-        by <span className="text-[#0341FF] cursor-pointer hover:underline">{course.author}</span>
-      </p>
-
-      {/* Level + Avatars */}
-      <div className="flex items-center gap-3 mt-auto mb-4">
-        <span className="flex items-center gap-1 text-[11px] font-medium text-gray-600 bg-gray-100 px-2.5 py-1.5 rounded-lg">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M12 20V10M18 20V4M6 20v-4" />
-          </svg>
-          {course.level}
-        </span>
-
-        {/* Avatars */}
-        <div className="flex items-center">
-          <div className="flex -space-x-2">
-            {avatars.map((img, i) => (
-              <img
+  return (
+    <Link to={`/courses/${courseSlug}`} className="block h-full">
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer h-full">
+        {/* Thumbnail */}
+        <div className="h-[195px] relative w-full overflow-hidden bg-gray-200">
+          {course.img && (
+            <img src={course.img} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          )}
+          <div className="absolute bottom-0 left-0 right-0 px-3 pb-3 flex gap-2">
+            {[course.lessons, course.duration, course.comments].map((label, i) => (
+              <span
                 key={i}
-                src={img}
-                alt="student"
-                className="w-[26px] h-[26px] rounded-full border-2 border-white object-cover"
-              />
+                className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-medium whitespace-nowrap"
+              >
+                {label}
+              </span>
             ))}
           </div>
-          <div className="w-[26px] h-[26px] rounded-full border-2 border-white bg-[#CEFF00] -ml-2 flex items-center justify-center text-[8px] font-extrabold text-gray-900 z-10">
-            26+
+        </div>
+
+        {/* Body */}
+        <div className="p-5 flex-1 flex flex-col">
+          {/* Title + Rating */}
+          <div className="flex items-start justify-between gap-3 mb-1">
+            <h3 className="font-bold text-[16px] text-gray-900 leading-snug group-hover:text-[#0341FF] transition-colors line-clamp-2 flex-1">
+              {course.title}
+            </h3>
+            <div className="flex items-center gap-1 shrink-0 text-[13px] text-gray-600 font-medium">
+              {course.rating}
+              <svg className="w-3.5 h-3.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Author */}
+          <p className="text-[12px] text-gray-400 mb-4">
+            by <Link to="/creator/purepearl-studio" onClick={(e) => e.stopPropagation()} className="text-[#0341FF] hover:underline">{course.author}</Link>
+          </p>
+
+          {/* Level + Avatars */}
+          <div className="flex items-center gap-3 mt-auto mb-4">
+            <span className="flex items-center gap-1 text-[11px] font-medium text-gray-600 bg-gray-100 px-2.5 py-1.5 rounded-lg">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M12 20V10M18 20V4M6 20v-4" />
+              </svg>
+              {course.level}
+            </span>
+
+            {/* Avatars */}
+            <div className="flex items-center">
+              <div className="flex -space-x-2">
+                {avatars.map((img, i) => (
+                  <img key={i} src={img} alt="student" className="w-[26px] h-[26px] rounded-full border-2 border-white object-cover" />
+                ))}
+              </div>
+              <div className="w-[26px] h-[26px] rounded-full border-2 border-white bg-[#CEFF00] -ml-2 flex items-center justify-center text-[8px] font-extrabold text-gray-900 z-10">
+                26+
+              </div>
+            </div>
+          </div>
+
+          {/* Price */}
+          <div className="pt-3 border-t border-gray-100">
+            <span className="text-[#0341FF] text-[20px] font-extrabold">{course.price}</span>
+            <span className="text-gray-400 text-[12px] ml-0.5">/lifetime</span>
           </div>
         </div>
       </div>
-
-      {/* Price */}
-      <div className="pt-3 border-t border-gray-100">
-        <span className="text-[#0341FF] text-[20px] font-extrabold">{course.price}</span>
-        <span className="text-gray-400 text-[12px] ml-0.5">/lifetime</span>
-      </div>
-    </div>
-  </div>
-);
+    </Link>
+  );
+};
 
 /* ── Main Section ── */
 const DiscoverPassion = () => {
