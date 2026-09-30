@@ -187,9 +187,13 @@ const Courses = () => {
         <Navbar />
 
         <div className="relative z-10 pt-[140px] pb-[60px] px-6 text-center">
-          <h1 className="text-white text-[32px] font-bold mb-8">Find Your Next Course</h1>
+          <span className="bg-[#CEFF00] text-gray-900 text-[12px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider mb-5 inline-block">
+            🎓 Explore All Courses
+          </span>
+          <h1 className="text-white text-[38px] md:text-[52px] font-extrabold leading-tight mb-4">Find Your Next Course</h1>
+          <p className="text-white/80 text-[15px] max-w-[500px] mx-auto mb-8">Browse hundreds of expert-led courses across design, marketing, tech, and more.</p>
 
-          <div className="flex justify-center max-w-[650px] mx-auto gap-3">
+          <div className="flex justify-center max-w-[650px] mx-auto gap-3 mb-10">
             <div className="relative flex-1">
               <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -209,6 +213,21 @@ const Courses = () => {
             >
               Search
             </button>
+          </div>
+
+          {/* Stats row */}
+          <div className="flex justify-center gap-6 flex-wrap">
+            {[
+              { label: 'Total Courses', value: '12+' },
+              { label: 'Expert Creators', value: '5+' },
+              { label: 'Active Students', value: '2K+' },
+              { label: 'Categories', value: '9' },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center">
+                <span className="text-white font-extrabold text-[22px] leading-none">{s.value}</span>
+                <span className="text-white/60 text-[12px] mt-0.5">{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

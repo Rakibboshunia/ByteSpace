@@ -14,6 +14,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Help from './pages/Help';
 import AffiliateProgram from './pages/AffiliateProgram';
+import Payment from './pages/Payment';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from 'react-hot-toast';
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:courseSlug" element={<CourseDetail />} />
+          <Route path="/payment/:courseSlug" element={<Payment />} />
           <Route path="/creator/:creatorSlug" element={<CreatorProfile />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />

@@ -8,11 +8,11 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-4">
-            <Link to="/" className="flex items-center gap-2 font-bold text-2xl text-gray-900 mb-6 cursor-pointer hover:opacity-80 transition-opacity">
-              <div className="bg-accent text-primary w-8 h-8 rounded-[50%_50%_50%_0] flex justify-center items-center text-xl font-extrabold">
+            <Link to="/" className="flex items-center gap-2 font-bold text-[22px] text-gray-900 mb-6 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="bg-[#CEFF00] text-[#0341FF] w-[32px] h-[32px] rounded-[10px_10px_10px_0] flex justify-center items-center text-[20px] font-black leading-none">
                 b
               </div>
-              <span>byteSpace</span>
+              <span className="tracking-wide">ByteSpace</span>
             </Link>
             <p className="text-gray-500 text-sm mb-6">
               Stay Up to date with our latest features and releases by joining our newsletter.

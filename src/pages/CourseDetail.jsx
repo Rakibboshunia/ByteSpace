@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Header/Navbar';
 import Footer from '../components/Footer/Footer';
 import toast from 'react-hot-toast';
@@ -333,41 +333,62 @@ const ReviewCard = ({ review }) => (
 
 // ─── SIDEBAR CARD (used once, inside hero) ────────────────────────────────────
 
-const SidebarCard = ({ instructorAvatar, courseInfo }) => (
-  <div className="bg-white rounded-2xl shadow-2xl p-6 lg:sticky lg:top-6">
-    {/* Lesson count */}
-    <div className="flex items-center gap-2 mb-4">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0341FF" strokeWidth="2">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-      </svg>
-      <span className="font-bold text-gray-900 text-[15px]">112 Lessons (24 hours)</span>
-    </div>
+const SidebarCard = ({ instructorAvatar, courseInfo, courseSlug }) => {
+  const [isEnrolled, setIsEnrolled] = useState(false);
+  const navigate = useNavigate();
 
-    {/* Lesson previews */}
-    <div className="mb-4">
-      {lessonSidebar.map((l, i) => <SidebarLesson key={i} lesson={l} />)}
-      <button className="text-[#0341FF] text-[13px] font-semibold mt-3 hover:underline">+4 more lessons</button>
-    </div>
+  const handleEnroll = () => {
+    if (!isEnrolled) {
+      const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+      if (isAuthenticated) {
+        navigate(`/payment/${courseSlug || 'build-digital-asset'}`);
+      } else {
+        const returnUrl = encodeURIComponent(`/payment/${courseSlug || 'build-digital-asset'}`);
+        navigate(`/signup?returnUrl=${returnUrl}`);
+      }
+    }
+  };
 
-    <p className="text-gray-400 text-[12px] mb-2">Ready to Dive It? Enrol Now and Start Building Your Digital Future!</p>
+  return (
+    <div className="bg-white rounded-2xl shadow-2xl p-6 lg:sticky lg:top-6">
+      {/* Lesson count */}
+      <div className="flex items-center gap-2 mb-4">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0341FF" strokeWidth="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+        </svg>
+        <span className="font-bold text-gray-900 text-[15px]">112 Lessons (24 hours)</span>
+      </div>
 
-    {/* Price */}
-    <div className="flex items-baseline gap-1 mt-2 mb-4">
-      <span className="text-[#0341FF] text-[32px] font-extrabold leading-none">{courseInfo?.price || '$25'}</span>
-      <span className="text-gray-400 text-[13px]">/lifetime</span>
-    </div>
+      {/* Lesson previews */}
+      <div className="mb-4">
+        {lessonSidebar.map((l, i) => <SidebarLesson key={i} lesson={l} />)}
+        <button className="text-[#0341FF] text-[13px] font-semibold mt-3 hover:underline">+4 more lessons</button>
+      </div>
 
-    {/* CTA */}
-    <button 
-      onClick={() => toast.success('Added to cart successfully!')}
-      className="w-full bg-[#CEFF00] hover:bg-[#B4E600] text-gray-900 font-bold py-3.5 rounded-xl text-[15px] transition-all hover:scale-[1.02] shadow-md mb-5"
-    >
-      Enrol Now
-    </button>
+      <p className="text-gray-400 text-[12px] mb-2">Ready to Dive It? Enrol Now and Start Building Your Digital Future!</p>
 
-    {/* This course includes */}
-    <div className="mb-4">
-      <p className="text-[13px] font-bold text-gray-900 mb-3">This course includes</p>
+      {/* Price */}
+      <div className="flex items-baseline gap-1 mt-2 mb-4">
+        <span className="text-[#0341FF] text-[32px] font-extrabold leading-none">{courseInfo?.price || '$25'}</span>
+        <span className="text-gray-400 text-[13px]">/lifetime</span>
+      </div>
+
+      {/* CTA */}
+      <button 
+        onClick={handleEnroll}
+        disabled={isEnrolled}
+        className={`w-full font-bold py-3.5 rounded-xl text-[15px] transition-all shadow-md mb-5 ${
+          isEnrolled 
+            ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+            : 'bg-[#CEFF00] hover:bg-[#B4E600] text-gray-900 hover:scale-[1.02]'
+        }`}
+      >
+        {isEnrolled ? 'Enrolled' : 'Enrol Now'}
+      </button>
+
+      {/* This course includes */}
+      <div className="mb-4">
+        <p className="text-[13px] font-bold text-gray-900 mb-3">This course includes</p>
       <ul className="space-y-2.5">
         {[
           { icon: '📚', label: 'Learning Resources' },
@@ -395,7 +416,8 @@ const SidebarCard = ({ instructorAvatar, courseInfo }) => (
       <Link to="/creator/purepearl-studio" className="text-[#0341FF] text-[13px] font-semibold mt-3 hover:underline inline-block">See Full Profile →</Link>
     </div>
   </div>
-);
+  );
+};
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 
@@ -504,7 +526,7 @@ const CourseDetail = () => {
             {/* Using absolute positioning ensures the Sidebar doesn't stretch the blue background downwards! */}
             <div className="hidden lg:block relative h-full">
               <div className="absolute top-0 left-0 w-full z-50">
-                <SidebarCard instructorAvatar={instructorAvatar} courseInfo={courseInfo} />
+                <SidebarCard instructorAvatar={instructorAvatar} courseInfo={courseInfo} courseSlug={courseSlug} />
               </div>
             </div>
 
@@ -693,7 +715,7 @@ const CourseDetail = () => {
               {/* On Desktop, this is invisible and acts as a spacer for the absolute card from Section 1 */}
               {/* On Mobile, this becomes visible so the card displays at the bottom of the content */}
               <div className="lg:opacity-0 lg:pointer-events-none">
-                <SidebarCard instructorAvatar={instructorAvatar} courseInfo={courseInfo} />
+                <SidebarCard instructorAvatar={instructorAvatar} courseInfo={courseInfo} courseSlug={courseSlug} />
               </div>
             </div>
 
