@@ -37,7 +37,7 @@ const courseDataDict = {
     price: '$25'
   },
   'build-digital-asset': {
-    title: 'Build Digital Asset: A Comprehensive Guide',
+    title: 'Build Digital Asset',
     subtitle: 'Unlock the Power of Digital Creation with Expert Guidance',
     img: courseHero,
     rating: '4.8 (772 reviews)',
@@ -56,6 +56,17 @@ const courseDataDict = {
     author: 'purepearl studio',
     price: '$35'
   },
+  'balancing-productivity-and-wellness': {
+    title: 'Balancing Productivity and Wellness',
+    subtitle: 'Achieve more while maintaining your mental and physical health',
+    img: img4,
+    rating: '4.9 (1,100 reviews)',
+    students: '2,300 Students',
+    level: 'All Levels',
+    author: 'purepearl studio',
+    price: '$20'
+  },
+  // legacy slug alias
   'balancing-productivity-an': {
     title: 'Balancing Productivity and Wellness',
     subtitle: 'Achieve more while maintaining your mental and physical health',
@@ -66,6 +77,17 @@ const courseDataDict = {
     author: 'purepearl studio',
     price: '$20'
   },
+  'mastering-money-management': {
+    title: 'Mastering Money Management',
+    subtitle: 'Take control of your finances and build long-term wealth',
+    img: img5,
+    rating: '4.6 (610 reviews)',
+    students: '1,500 Students',
+    level: 'Beginner',
+    author: 'purepearl studio',
+    price: '$30'
+  },
+  // legacy slug alias
   'mastering-money-manage': {
     title: 'Mastering Money Management',
     subtitle: 'Take control of your finances and build long-term wealth',
@@ -76,6 +98,17 @@ const courseDataDict = {
     author: 'purepearl studio',
     price: '$30'
   },
+  'from-idea-to-startup-success': {
+    title: 'From Idea to Startup Success',
+    subtitle: 'The complete roadmap for launching your own business',
+    img: img6,
+    rating: '4.8 (890 reviews)',
+    students: '1,800 Students',
+    level: 'Intermediate',
+    author: 'purepearl studio',
+    price: '$45'
+  },
+  // legacy slug alias
   'from-idea-to-startup-succ': {
     title: 'From Idea to Startup Success',
     subtitle: 'The complete roadmap for launching your own business',
@@ -85,6 +118,66 @@ const courseDataDict = {
     level: 'Intermediate',
     author: 'purepearl studio',
     price: '$45'
+  },
+  'ui-ux-fundamentals': {
+    title: 'UI/UX Fundamentals',
+    subtitle: 'Build a strong foundation in user interface and experience design',
+    img: courseHero,
+    rating: '4.4 (310 reviews)',
+    students: '870 Students',
+    level: 'Beginner',
+    author: 'purepearl studio',
+    price: '$20'
+  },
+  'animation-for-beginners': {
+    title: 'Animation for Beginners',
+    subtitle: 'Learn the principles of motion and bring your designs to life',
+    img: img4,
+    rating: '4.3 (220 reviews)',
+    students: '640 Students',
+    level: 'Beginner',
+    author: 'purepearl studio',
+    price: '$15'
+  },
+  'drawing-painting-basics': {
+    title: 'Drawing & Painting Basics',
+    subtitle: 'Develop your artistic eye and fundamental drawing skills',
+    img: img1,
+    rating: '4.6 (450 reviews)',
+    students: '1,100 Students',
+    level: 'Beginner',
+    author: 'purepearl studio',
+    price: '$18'
+  },
+  'social-media-strategy': {
+    title: 'Social Media Strategy',
+    subtitle: 'Grow your brand and audience with data-driven social media tactics',
+    img: img5,
+    rating: '4.5 (550 reviews)',
+    students: '1,300 Students',
+    level: 'Intermediate',
+    author: 'purepearl studio',
+    price: '$28'
+  },
+  'creative-marketing-masterclass': {
+    title: 'Creative Marketing Masterclass',
+    subtitle: 'Craft campaigns that captivate audiences and drive real results',
+    img: img3,
+    rating: '4.7 (800 reviews)',
+    students: '1,600 Students',
+    level: 'Intermediate',
+    author: 'purepearl studio',
+    price: '$40'
+  },
+  'music-production-101': {
+    title: 'Music Production 101',
+    subtitle: 'Create professional-quality tracks from scratch in your home studio',
+    img: img6,
+    rating: '4.2 (180 reviews)',
+    students: '520 Students',
+    level: 'Beginner',
+    author: 'purepearl studio',
+    price: '$22'
   },
 };
 

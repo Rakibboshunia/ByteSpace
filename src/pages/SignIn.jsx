@@ -9,8 +9,8 @@ const SignIn = () => {
       subtitle="Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge."
     >
       <div className="w-full">
-        <Link to="/signin" className="text-[#0341FF] text-[13px] font-semibold hover:underline mb-2 inline-block">
-          Sign In
+        <Link to="/" className="text-[#0341FF] text-[13px] font-semibold hover:underline mb-2 inline-block">
+          ← Home
         </Link>
         <h2 className="text-[36px] font-extrabold text-gray-900 leading-tight mb-8">
           Welcome Back

@@ -9,8 +9,8 @@ const SignUp = () => {
       subtitle="The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost"
     >
       <div className="w-full">
-        <Link to="/signup" className="text-[#0341FF] text-[13px] font-semibold hover:underline mb-2 inline-block">
-          Create an Account
+        <Link to="/" className="text-[#0341FF] text-[13px] font-semibold hover:underline mb-2 inline-block">
+          ← Home
         </Link>
         <h2 className="text-[36px] font-extrabold text-gray-900 leading-tight mb-8">
           Welcome to<br />ByteSpace

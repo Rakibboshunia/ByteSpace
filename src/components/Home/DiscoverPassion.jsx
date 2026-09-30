@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import img1 from '../../assets/01.jpg';
 import img2 from '../../assets/02.jpg';
@@ -12,6 +12,7 @@ import img6 from '../../assets/05.jpg';
 const courses = [
   {
     title: 'Learn Figma from Basic',
+    category: 'UI/UX Design',
     author: 'purepearl studio',
     rating: '4.5',
     price: '$25',
@@ -23,6 +24,7 @@ const courses = [
   },
   {
     title: 'Build Digital Asset',
+    category: 'Freelance & Entrepreneurship',
     author: 'purepearl studio',
     rating: '4.5',
     price: '$25',
@@ -34,6 +36,7 @@ const courses = [
   },
   {
     title: 'the Power of Big Data',
+    category: 'Data Science',
     author: 'purepearl studio',
     rating: '4.5',
     price: '$25',
@@ -45,6 +48,7 @@ const courses = [
   },
   {
     title: 'Balancing Productivity an...',
+    category: 'Productivity',
     author: 'purepearl studio',
     rating: '4.5',
     price: '$25',
@@ -56,6 +60,7 @@ const courses = [
   },
   {
     title: 'Mastering Money Manage...',
+    category: 'Business',
     author: 'purepearl studio',
     rating: '4.5',
     price: '$25',
@@ -67,6 +72,7 @@ const courses = [
   },
   {
     title: 'From Idea to Startup Succ...',
+    category: 'Freelance & Entrepreneurship',
     author: 'purepearl studio',
     rating: '4.5',
     price: '$25',
@@ -191,6 +197,10 @@ const CourseCard = ({ course }) => {
 const DiscoverPassion = () => {
   const [active, setActive] = useState('Featured');
 
+const filteredCourses = active === 'Featured'
+    ? courses
+    : courses.filter(course => course.category === active);
+
   return (
     <div className="py-20 bg-white">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -227,9 +237,28 @@ const DiscoverPassion = () => {
 
         {/* Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {courses.map((course, idx) => (
-            <CourseCard key={idx} course={course} />
-          ))}
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course, idx) => (
+              <CourseCard key={idx} course={course} />
+            ))
+          ) : (
+            <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-10 text-gray-500">
+              No courses available in this category yet.
+            </div>
+          )}
+        </div>
+
+        {/* View All Button */}
+        <div className="text-center mt-12">
+          <Link
+            to={`/courses${active !== 'Featured' ? `?category=${encodeURIComponent(active)}` : ''}`}
+            className="inline-flex items-center gap-2 bg-[#0341FF] hover:bg-blue-700 text-white font-bold px-10 py-4 rounded-full transition-colors duration-200 shadow-lg text-[15px]"
+          >
+            View All Courses
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </Link>
         </div>
       </div>
     </div>

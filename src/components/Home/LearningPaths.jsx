@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const paths = [
   {
     name: 'Design',
+    slug: 'UI/UX Design',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="13.5" cy="6.5" r="0.5" fill="currentColor"/>
@@ -16,15 +17,17 @@ const paths = [
   },
   {
     name: 'Development',
+    slug: 'Coding',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <line x1="12" y1="18" x2="12.01" y2="18"/>
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
       </svg>
     ),
   },
   {
     name: 'IT & Software',
+    slug: 'Coding',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2"/>
@@ -35,6 +38,7 @@ const paths = [
   },
   {
     name: 'Business',
+    slug: 'Featured',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -46,6 +50,7 @@ const paths = [
   },
   {
     name: 'Marketing',
+    slug: 'Marketing',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
@@ -54,6 +59,7 @@ const paths = [
   },
   {
     name: 'Photography',
+    slug: 'Drawing & Painting',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
@@ -80,7 +86,7 @@ const LearningPaths = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
           {paths.map((path, idx) => (
             <Link
-              to="/courses"
+              to={`/courses?category=${encodeURIComponent(path.slug)}`}
               key={idx}
               className="flex flex-col items-center gap-5 bg-white border border-gray-200 rounded-[20px] py-8 px-4 cursor-pointer
                          hover:shadow-lg hover:border-[#CEFF00] transition-all duration-300 group"

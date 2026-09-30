@@ -10,6 +10,10 @@ import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiesSettings from './pages/CookiesSettings';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Help from './pages/Help';
+import AffiliateProgram from './pages/AffiliateProgram';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from 'react-hot-toast';
 
@@ -29,6 +33,10 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookies-settings" element={<CookiesSettings />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/affiliate-program" element={<AffiliateProgram />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

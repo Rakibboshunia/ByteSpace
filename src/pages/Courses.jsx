@@ -105,12 +105,19 @@ const Courses = () => {
 
   const [searchQuery, setSearchQuery]   = useState(searchParams.get('q') || '');
   const [inputValue,  setInputValue]    = useState(searchParams.get('q') || '');
-  const [activeCat,   setActiveCat]     = useState('Featured');
+  const [activeCat,   setActiveCat]     = useState(searchParams.get('category') || 'Featured');
   const [activeLevel, setActiveLevel]   = useState('All Levels');
   const [sortBy,      setSortBy]        = useState('Most Relevant');
   const [currentPage, setCurrentPage]   = useState(1);
   const [showLevelDropdown, setShowLevelDropdown] = useState(false);
   const [showSortDropdown,  setShowSortDropdown]  = useState(false);
+
+  // Sync activeCat when URL ?category= param changes (e.g. navigating from LearningPaths)
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat) setActiveCat(cat);
+    else setActiveCat('Featured');
+  }, [searchParams]);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
