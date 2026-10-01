@@ -47,7 +47,7 @@ const courseDataDict = {
     price: '$25'
   },
   'the-power-of-big-data': {
-    title: 'the Power of Big Data',
+    title: 'The Power of Big Data',
     subtitle: 'Understand analytics and leverage data for strategic decisions',
     img: img3,
     rating: '4.7 (420 reviews)',
@@ -257,7 +257,7 @@ const reviews = [
     name: 'Cody Fisher',
     role: 'UX Designer',
     rating: 4,
-    text: 'The lessons in this course were truly modular chunks of information and kept my interest. They are structured feedback, providing my skills. The platform is very well validated in the learning process.',
+    text: 'The lessons in this course are well-structured and kept my interest throughout. Each module builds on the previous one, and the hands-on exercises really helped solidify my skills. A great learning experience overall.',
     time: 'a year ago',
     avatar: avatar3,
   },
@@ -265,7 +265,7 @@ const reviews = [
     name: 'Brooklyn Simmons',
     role: 'Motion Designer',
     rating: 5,
-    text: 'This course is changing digital skills for serious artists to and particularly quite insightful. The course adapts to the ever-evolving digital landscape, and the engaging exercises kept me impressed throughout.',
+    text: 'This course is a must-have for anyone serious about building digital skills. The content stays relevant to the ever-evolving digital landscape, and the engaging exercises kept me motivated from start to finish.',
     time: '2 years ago',
     avatar: avatar4,
   },
@@ -365,7 +365,7 @@ const SidebarCard = ({ instructorAvatar, courseInfo, courseSlug }) => {
         <button className="text-[#0341FF] text-[13px] font-semibold mt-3 hover:underline">+4 more lessons</button>
       </div>
 
-      <p className="text-gray-400 text-[12px] mb-2">Ready to Dive It? Enrol Now and Start Building Your Digital Future!</p>
+      <p className="text-gray-400 text-[12px] mb-2">Ready to dive in? Enrol now and start building your digital future!</p>
 
       {/* Price */}
       <div className="flex items-baseline gap-1 mt-2 mb-4">
@@ -405,7 +405,7 @@ const SidebarCard = ({ instructorAvatar, courseInfo, courseSlug }) => {
     </div>
 
     <div className="border-t border-gray-100 pt-4">
-      <p className="text-gray-400 text-[12px] mb-3">Ready to Dive It? Enrol Now and Start Building Your Digital Future!</p>
+      <p className="text-gray-400 text-[12px] mb-3">Ready to dive in? Enrol now and start building your digital future!</p>
       <div className="flex items-center gap-3">
         <img src={instructorAvatar} alt="Instructor" className="w-11 h-11 rounded-full object-cover border-2 border-gray-100" />
         <div>

@@ -119,7 +119,7 @@ const CookiesSettings = () => {
                 Cancel
               </button>
               <button 
-                onClick={() => toast.success('Your cookie preferences have been saved!')}
+                onClick={() => toast.success('Your cookie preferences have been saved!', { id: 'cookie-save' })}
                 className="bg-[#CEFF00] hover:bg-[#B4E600] text-gray-900 font-bold px-8 py-3.5 rounded-full transition-colors shadow-sm w-full sm:w-auto text-[15px]"
               >
                 Save Preferences

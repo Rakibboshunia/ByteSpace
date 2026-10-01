@@ -11,7 +11,7 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    toast.success('Registration successful! Please login.');
+    toast.success('Registration successful! Please login.', { id: 'signup-success' });
     if (returnUrl) {
       navigate(`/signin?returnUrl=${encodeURIComponent(returnUrl)}`);
     } else {
@@ -22,7 +22,7 @@ const SignUp = () => {
   return (
     <AuthLayout
       title="Sign up and come in"
-      subtitle="The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost"
+      subtitle="Create your free account in seconds and unlock a world of expert-led courses."
     >
       <div className="w-full">
         <Link to="/" className="text-[#0341FF] text-[13px] font-semibold hover:underline mb-2 inline-block">

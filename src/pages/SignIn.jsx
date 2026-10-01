@@ -12,14 +12,14 @@ const SignIn = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     localStorage.setItem('isAuthenticated', 'true');
-    toast.success('Successfully logged in!');
+    toast.success('Successfully logged in!', { id: 'login-success' });
     navigate(returnUrl || '/');
   };
 
   return (
     <AuthLayout
       title="Sign in with ease"
-      subtitle="Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge."
+      subtitle="Welcome back! Sign in to continue your learning journey."
     >
       <div className="w-full">
         <Link to="/" className="text-[#0341FF] text-[13px] font-semibold hover:underline mb-2 inline-block">
@@ -31,48 +31,51 @@ const SignIn = () => {
 
         <form className="space-y-5" onSubmit={handleSignIn}>
           <div>
-            <label className="block text-[12px] font-semibold text-gray-700 mb-1.5">Email</label>
+            <label className="block text-[13px] font-bold text-gray-800 mb-1.5">Email Address</label>
             <input
               type="email"
-              placeholder="designer@example.com"
-              className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-[14px] outline-none focus:border-[#0341FF] transition-colors placeholder:text-gray-400"
+              placeholder="name@example.com"
+              className="w-full px-5 py-3.5 bg-gray-50 hover:bg-white rounded-[14px] border border-gray-200 text-[14px] outline-none focus:border-[#0341FF] focus:bg-white focus:ring-4 focus:ring-[#0341FF]/10 transition-all placeholder:text-gray-400 font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-[12px] font-semibold text-gray-700 mb-1.5">Password</label>
+            <label className="block text-[13px] font-bold text-gray-800 mb-1.5">Password</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
-                className="w-full px-4 py-3.5 pr-12 rounded-xl border border-gray-200 text-[14px] outline-none focus:border-[#0341FF] transition-colors placeholder:text-gray-400 font-serif tracking-widest"
+                className="w-full px-5 py-3.5 bg-gray-50 hover:bg-white pr-12 rounded-[14px] border border-gray-200 text-[14px] outline-none focus:border-[#0341FF] focus:bg-white focus:ring-4 focus:ring-[#0341FF]/10 transition-all placeholder:text-gray-400 font-serif tracking-widest"
               />
               <button
                 type="button"
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#0341FF] transition-colors"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
                     <line x1="1" y1="1" x2="23" y2="23"></line>
                   </svg>
                 ) : (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                     <circle cx="12" cy="12" r="3"></circle>
                   </svg>
                 )}
               </button>
             </div>
+            <div className="flex justify-end mt-2">
+              <a href="#" className="text-[#0341FF] text-[12px] font-bold hover:underline">Forgot password?</a>
+            </div>
           </div>
 
-          <div className="pt-2 flex justify-end">
+          <div className="pt-4">
             <button
               type="submit"
-              className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 font-bold py-3.5 px-8 rounded-full text-[15px] transition-colors shadow-sm"
+              className="w-full bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 font-black py-4 px-8 rounded-full text-[15px] transition-all shadow-[0_4px_14px_rgba(206,255,0,0.4)] hover:shadow-[0_6px_20px_rgba(206,255,0,0.6)] hover:-translate-y-0.5"
             >
-              Sign In
+              Sign In to Account
             </button>
           </div>
         </form>

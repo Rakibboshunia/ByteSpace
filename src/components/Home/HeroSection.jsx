@@ -14,10 +14,10 @@ const HeroSection = () => {
       navigate('/courses');
     }
   };
-  return (
-    <div className="relative bg-[#0341FF] min-h-[900px] overflow-hidden text-white pb-0" style={{ background: '#0341FF' }}>
 
-      {/* ── Background Grid ── */}
+  return (
+    <div className="relative bg-[#0341FF] overflow-hidden text-white">
+      {/* Background Grid */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -29,136 +29,109 @@ const HeroSection = () => {
         }}
       />
 
-      {/* ══════════════════════════════════════════
-          DECORATIVE 3D SHAPES  (all absolute)
-      ══════════════════════════════════════════ */}
 
-      {/* Left – Green blob / squiggle (top-left) */}
-      <svg className="absolute top-[12%] left-[2%] z-10" width="130" height="180" viewBox="0 0 130 180" fill="none">
-        <path d="M30 10 C-10 40, -10 90, 30 110 C70 130, 120 100, 110 60 C100 20, 70 -10, 30 10Z"
-          fill="#CEFF00" style={{ filter: 'drop-shadow(4px 8px 12px rgba(0,0,0,0.25))' }} />
-      </svg>
-
-      {/* Left – White squiggle/zigzag (middle-left) */}
-      <svg className="absolute top-[48%] left-[4%] z-10" width="90" height="90" viewBox="0 0 90 90" fill="none">
-        <path d="M10 80 C25 60, 25 40, 10 20 C25 25, 45 45, 65 30 C50 50, 50 70, 65 85"
-          stroke="white" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      </svg>
-
-      {/* Left – White donut / ring (bottom-left) */}
-      <svg className="absolute bottom-[5%] left-[3%] z-10" width="120" height="120" viewBox="0 0 120 120" fill="none">
-        <circle cx="60" cy="60" r="48" stroke="white" strokeWidth="20" fill="none"
-          style={{ filter: 'drop-shadow(4px 8px 14px rgba(0,0,0,0.2))' }} />
-      </svg>
-
-      {/* Right – Green cylinder / cup (top-right) */}
-      <svg className="absolute top-[5%] right-[2%] z-10" width="100" height="150" viewBox="0 0 100 150" fill="none">
-        <rect x="10" y="20" width="80" height="110" rx="40" ry="40" fill="#CEFF00"
-          style={{ filter: 'drop-shadow(-4px 8px 14px rgba(0,0,0,0.25))' }} />
-        <ellipse cx="50" cy="20" rx="40" ry="14" fill="#B4E600" />
-      </svg>
-
-      {/* Right – White triangle (upper-right area) */}
-      <svg className="absolute top-[32%] right-[8%] z-10" width="110" height="110" viewBox="0 0 110 110" fill="none">
-        <polygon points="55,5 105,105 5,105" fill="white"
-          style={{ filter: 'drop-shadow(-4px 6px 12px rgba(0,0,0,0.18))' }} />
-      </svg>
-
-      {/* Right – White zigzag / squiggle (lower-right) */}
-      <svg className="absolute bottom-[12%] right-[3%] z-10" width="100" height="90" viewBox="0 0 100 90" fill="none">
-        <path d="M85 10 C70 30, 70 50, 85 70 C70 65, 50 45, 30 60 C45 40, 45 20, 30 5"
-          stroke="white" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      </svg>
-
-      {/* ══════════════════════════════════════════ */}
 
       <Navbar />
 
-      {/* ── Main Content ── */}
-      <div className="relative z-20 max-w-[1200px] mx-auto pt-[140px] px-6 text-center">
+      {/* Main Content */}
+      <div className="relative z-20 max-w-[1200px] mx-auto px-4 sm:px-6 pt-[100px] lg:pt-[110px] text-center">
 
-        <h1 className="text-[68px] font-extrabold leading-[1.15] mb-5 tracking-tight drop-shadow-sm">
-          Get Access to Hundreds<br />Courses Available
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-[13px] font-medium mb-4">
+          🎓 <span>100+ Courses Available</span>
+        </div>
+
+        <h1 className="text-[36px] sm:text-[44px] md:text-[48px] lg:text-[52px] font-extrabold leading-[1.1] mb-4 tracking-tight">
+          Get Access to Hundreds<br className="hidden sm:block" /> of Courses Available
         </h1>
 
-        <p className="text-[17px] text-white/85 max-w-[600px] mx-auto mb-10 leading-relaxed font-light">
+        <p className="text-[14px] sm:text-[15px] text-white/85 max-w-[500px] mx-auto mb-6 leading-relaxed px-2">
           Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
         </p>
 
-        <div className="flex bg-white rounded-full py-2 pl-6 pr-2 max-w-[540px] mx-auto items-center shadow-2xl relative z-30 mb-0">
-          <svg className="shrink-0 mr-3 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10Z"
-              stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-            placeholder="Course, topic, creator"
-            className="border-none outline-none w-full text-[15px] text-gray-700 placeholder:text-gray-400 bg-transparent"
-          />
+        {/* Search Bar */}
+        <div className="flex flex-col sm:flex-row bg-white rounded-2xl sm:rounded-full py-2.5 px-4 sm:pl-6 sm:pr-2 max-w-[520px] mx-auto items-stretch sm:items-center shadow-2xl gap-3 sm:gap-0">
+          <div className="flex items-center flex-1">
+            <svg className="shrink-0 mr-3 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10Z"
+                stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+              placeholder="Course, topic, creator..."
+              className="border-none outline-none w-full text-[14px] text-gray-700 placeholder:text-gray-400 bg-transparent"
+            />
+          </div>
           <button
             onClick={handleSearch}
-            className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 border-none py-3 px-8 rounded-full text-[15px] font-bold cursor-pointer transition-colors duration-200 whitespace-nowrap">
+            className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 py-2.5 px-7 rounded-xl sm:rounded-full text-[14px] font-bold transition-colors whitespace-nowrap w-full sm:w-auto"
+          >
             Search
           </button>
         </div>
 
-        {/* ── Hero Image Area ── */}
-        <div className="relative mt-[-10px] flex justify-center items-end">
+        {/* Stats */}
+        <div className="flex flex-wrap justify-center gap-6 mt-6 mb-6">
+          {[
+            { value: '2K+', label: 'Students' },
+            { value: '70+', label: 'Courses' },
+            { value: '16', label: 'Creators' },
+          ].map(({ value, label }) => (
+            <div key={label} className="text-center">
+              <p className="text-[20px] sm:text-[24px] font-extrabold text-[#CEFF00] leading-none">{value}</p>
+              <p className="text-[11px] sm:text-[12px] text-white/70 font-medium mt-1">{label}</p>
+            </div>
+          ))}
+        </div>
 
-          {/* Accent half-circle background */}
-          <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#CEFF00] z-0 rounded-t-full"
-            style={{ width: '520px', height: '300px' }}
-          />
+        {/* Hero Image Area */}
+        <div className="relative flex justify-center items-end mt-2">
+          {/* Accent half-circle */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#CEFF00] rounded-t-full w-[300px] h-[190px] sm:w-[460px] sm:h-[300px] md:w-[600px] md:h-[340px] lg:w-[680px] lg:h-[380px]" />
 
-          {/* Floating Badge – UI/UX Design (left) */}
-          <div className="absolute left-[8%] top-[28%] bg-white rounded-2xl shadow-2xl px-5 py-4 text-left z-30 min-w-[210px]">
-            <p className="text-gray-900 font-bold text-[15px] leading-tight">UI/UX Design</p>
-            <p className="text-gray-400 text-[11px] mt-0.5 font-medium">200 Courses &nbsp;•&nbsp; 1000+ Students</p>
+          {/* Floating badges - only on large screens */}
+          <div className="hidden xl:block absolute left-[8%] top-[6%] bg-white rounded-2xl shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all duration-300 px-4 py-3 text-left z-30 min-w-[190px]">
+            <p className="text-gray-900 font-bold text-[13px] leading-tight">UI/UX Design</p>
+            <p className="text-gray-400 text-[10px] mt-0.5">200 Courses • 1000+ Students</p>
           </div>
 
-          {/* Floating Badge – Learning Progress (right) */}
-          <div className="absolute right-[8%] top-[22%] bg-white rounded-2xl shadow-2xl px-5 py-4 text-left z-30 min-w-[195px]">
+          <div className="hidden xl:block absolute right-[8%] top-[4%] bg-white rounded-2xl shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all duration-300 px-4 py-3 text-left z-30 min-w-[175px]">
             <div className="flex items-center justify-between mb-1">
-              <p className="text-gray-500 text-[11px] font-semibold tracking-wide">Learning Progress</p>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <p className="text-gray-500 text-[10px] font-semibold">Learning Progress</p>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#CEFF00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <p className="text-gray-900 font-extrabold text-[34px] leading-none mb-2">55%</p>
-            <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+            <p className="text-gray-900 font-extrabold text-[26px] leading-none mb-2">55%</p>
+            <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
               <div className="bg-[#CEFF00] h-full rounded-full" style={{ width: '55%' }} />
             </div>
           </div>
 
-          {/* Floating Badge – Happy Students (bottom-left) */}
-          <div className="absolute left-[8%] bottom-[18%] bg-white rounded-2xl shadow-2xl px-5 py-4 text-left z-30">
-            <p className="text-gray-900 font-bold text-[15px]">Happy Students</p>
-            <div className="flex items-center gap-1 mt-0.5 mb-2">
-              <span className="text-yellow-400 text-[12px]">★</span>
-              <span className="text-gray-500 text-[11px] font-medium">4.5 (240)</span>
+          <div className="hidden xl:block absolute left-[10%] bottom-[6%] bg-white rounded-2xl shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all duration-300 px-3 py-2.5 text-left z-30">
+            <p className="text-gray-900 font-bold text-[13px]">Happy Students</p>
+            <div className="flex items-center gap-1 mt-0.5 mb-1.5">
+              <span className="text-yellow-400 text-[11px]">★</span>
+              <span className="text-gray-500 text-[10px] font-medium">4.5 (240)</span>
             </div>
             <div className="flex items-center">
-              <div className="flex -space-x-2.5">
-                {['#FF6B6B', '#4ECDC4', '#FFE66D', '#A78BFA', '#FB923C', '#34D399'].map((c, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white" style={{ backgroundColor: c }} />
+              <div className="flex -space-x-2">
+                {['#FF6B6B', '#4ECDC4', '#FFE66D', '#A78BFA', '#FB923C'].map((c, i) => (
+                  <div key={i} className="w-6 h-6 rounded-full border-2 border-white" style={{ backgroundColor: c }} />
                 ))}
               </div>
-              <div className="w-8 h-8 rounded-full border-2 border-white bg-[#CEFF00] -ml-2.5 flex items-center justify-center text-[9px] font-extrabold text-gray-900 z-10">
-                2K+
-              </div>
+              <div className="w-6 h-6 rounded-full border-2 border-white bg-[#CEFF00] -ml-2 flex items-center justify-center text-[7px] font-extrabold text-gray-900 z-10">2K+</div>
             </div>
           </div>
 
-          {/* Hero Person Image */}
+          {/* Hero Image */}
           <img
             src={heroImg}
             alt="Student with headphones"
-            className="relative z-10 object-contain object-bottom"
-            style={{ height: '480px', width: 'auto', maxWidth: '100%' }}
+            className="relative z-10 object-contain object-bottom w-auto max-w-[85%] sm:max-w-[70%] md:max-w-[55%] h-[260px] sm:h-[350px] md:h-[400px] lg:h-[440px]"
           />
         </div>
       </div>

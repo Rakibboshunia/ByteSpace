@@ -33,7 +33,7 @@ const NotFound = () => {
           </h2>
           
           <p className="text-white/80 text-[15px] md:text-[18px] mb-10 max-w-[500px]">
-            Try to use a correct url or go back to homepage to start again
+            The page you requested could not be found. Head back home and start fresh.
           </p>
 
           <Link to="/">

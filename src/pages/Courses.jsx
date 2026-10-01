@@ -24,7 +24,7 @@ const COURSES_PER_PAGE = 6;
 const allCourseData = [
   { title: 'Learn Figma from Basic',        author: 'purepearl studio', rating: 4.5, price: '$25', lessons: '17 Lessons', duration: '2 hours 16 mins', comments: '59 Comments', level: 'Beginner',     category: 'UI/UX Design',   img: img1 },
   { title: 'Build Digital Asset',           author: 'purepearl studio', rating: 4.5, price: '$25', lessons: '17 Lessons', duration: '2 hours 16 mins', comments: '59 Comments', level: 'Beginner',     category: 'Marketing',      img: img2 },
-  { title: 'the Power of Big Data',         author: 'purepearl studio', rating: 4.7, price: '$35', lessons: '12 Lessons', duration: '3 hours 10 mins', comments: '41 Comments', level: 'Advanced',     category: 'Coding',         img: img3 },
+  { title: 'The Power of Big Data',         author: 'purepearl studio', rating: 4.7, price: '$35', lessons: '12 Lessons', duration: '3 hours 10 mins', comments: '41 Comments', level: 'Advanced',     category: 'Coding',         img: img3 },
   { title: 'Balancing Productivity and Wellness', author: 'purepearl studio', rating: 4.9, price: '$20', lessons: '22 Lessons', duration: '1 hour 50 mins', comments: '78 Comments', level: 'All Levels', category: 'Featured',  img: img4 },
   { title: 'Mastering Money Management',    author: 'purepearl studio', rating: 4.6, price: '$30', lessons: '14 Lessons', duration: '2 hours 30 mins', comments: '63 Comments', level: 'Beginner',     category: 'Marketing',      img: img5 },
   { title: 'From Idea to Startup Success',  author: 'purepearl studio', rating: 4.8, price: '$45', lessons: '20 Lessons', duration: '4 hours 00 mins', comments: '92 Comments', level: 'Intermediate', category: 'Social Media',   img: img6 },
@@ -193,7 +193,7 @@ const Courses = () => {
           <h1 className="text-white text-[38px] md:text-[52px] font-extrabold leading-tight mb-4">Find Your Next Course</h1>
           <p className="text-white/80 text-[15px] max-w-[500px] mx-auto mb-8">Browse hundreds of expert-led courses across design, marketing, tech, and more.</p>
 
-          <div className="flex justify-center max-w-[650px] mx-auto gap-3 mb-10">
+          <div className="flex flex-col sm:flex-row justify-center max-w-[650px] mx-auto gap-3 mb-10">
             <div className="relative flex-1">
               <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -204,12 +204,12 @@ const Courses = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 placeholder="Search courses, topics, creators..."
-                className="w-full pl-11 pr-4 py-3.5 rounded-full outline-none text-[15px] bg-white text-gray-900"
+                className="w-full pl-11 pr-4 py-3.5 rounded-full outline-none text-[15px] bg-white text-gray-900 shadow-sm"
               />
             </div>
             <button
               onClick={handleSearch}
-              className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 font-bold px-7 py-3.5 rounded-full flex items-center gap-2 transition-colors"
+              className="bg-[#CEFF00] hover:bg-[#b8e600] text-gray-900 font-bold px-7 py-3.5 rounded-full flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
             >
               Search
             </button>

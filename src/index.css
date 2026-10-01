@@ -8,7 +8,26 @@
   --color-accent-hover: #B4E600;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Outfit', sans-serif;
   @apply bg-white text-gray-900 antialiased;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

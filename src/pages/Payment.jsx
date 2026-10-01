@@ -16,7 +16,7 @@ import img6 from '../assets/05.jpg';
 const courseDataDict = {
   'learn-figma-from-basic': { title: 'Learn Figma from Basic', author: 'purepearl studio', price: 25, img: img1 },
   'build-digital-asset': { title: 'Build Digital Asset', author: 'purepearl studio', price: 25, img: courseHero },
-  'the-power-of-big-data': { title: 'the Power of Big Data', author: 'purepearl studio', price: 35, img: img3 },
+  'the-power-of-big-data': { title: 'The Power of Big Data', author: 'purepearl studio', price: 35, img: img3 },
   'balancing-productivity-and-wellness': { title: 'Balancing Productivity and Wellness', author: 'purepearl studio', price: 20, img: img4 },
   'balancing-productivity-an': { title: 'Balancing Productivity and Wellness', author: 'purepearl studio', price: 20, img: img4 },
   'mastering-money-management': { title: 'Mastering Money Management', author: 'purepearl studio', price: 30, img: img5 },
@@ -48,7 +48,7 @@ const Payment = () => {
 
   const handlePayment = (e) => {
     e.preventDefault();
-    toast.success('Payment successful! Welcome to the course!');
+    toast.success('Payment successful! Welcome to the course!', { id: 'payment-success' });
     setTimeout(() => {
       navigate(`/courses/${courseSlug}`);
     }, 2000);
