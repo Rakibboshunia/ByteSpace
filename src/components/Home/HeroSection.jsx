@@ -51,9 +51,6 @@ const HeroSection = () => {
 
         <h1 className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-extrabold leading-[1.05] mb-6 tracking-tight relative">
           Get Access to Hundreds<br className="hidden sm:block" /> of Courses Available
-          <svg className="absolute w-[200px] sm:w-[300px] h-4 -bottom-2 right-1/4 sm:right-1/3 text-[#CEFF00]/40 rotate-2" viewBox="0 0 100 10" preserveAspectRatio="none">
-            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" />
-          </svg>
         </h1>
 
         <p className="text-[15px] sm:text-[17px] text-white/85 max-w-[550px] mx-auto mb-10 leading-relaxed px-2 font-medium">

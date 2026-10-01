@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -13,6 +14,10 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
     window.location.reload();
+  };
+
+  const handleCartClick = () => {
+    toast('Your cart is currently empty', { icon: '🛒' });
   };
 
   const NavLink = ({ to, label }) => {
@@ -91,7 +96,7 @@ const Navbar = () => {
           )}
 
           {/* Cart */}
-          <button className="text-white hover:opacity-80 transition-opacity">
+          <button onClick={handleCartClick} className="text-white hover:opacity-80 transition-opacity">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
@@ -102,7 +107,7 @@ const Navbar = () => {
 
         {/* Mobile Right Side (cart + hamburger) */}
         <div className="flex md:hidden items-center gap-3">
-          <button className="text-white hover:opacity-80 transition-opacity">
+          <button onClick={handleCartClick} className="text-white hover:opacity-80 transition-opacity">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
