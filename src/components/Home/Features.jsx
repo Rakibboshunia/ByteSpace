@@ -125,6 +125,7 @@ const Features = () => {
             </div>
           </div>
 
+          
           {/* Right – Text */}
           <div className="order-1 lg:order-2">
             <div className="inline-flex items-center gap-2 bg-[#CEFF00]/20 text-[#82a300] font-bold text-[12px] uppercase tracking-widest px-4 py-2 rounded-full mb-6">
