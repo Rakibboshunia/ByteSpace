@@ -61,6 +61,7 @@ const CookiesSettings = () => {
                   These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.
                 </p>
               </div>
+              
 
               {/* Performance Cookies */}
               <div className={`border rounded-2xl p-6 transition-all duration-300 relative overflow-hidden ${preferences.performance ? 'border-[#0341FF]/30 bg-blue-50/30' : 'border-gray-200 hover:border-gray-300'}`}>
@@ -87,6 +88,7 @@ const CookiesSettings = () => {
                 </p>
               </div>
 
+              
               {/* Targeting Cookies */}
               <div className={`border rounded-2xl p-6 transition-all duration-300 relative overflow-hidden ${preferences.targeting ? 'border-[#0341FF]/30 bg-blue-50/30' : 'border-gray-200 hover:border-gray-300'}`}>
                 <div className={`absolute top-0 left-0 w-1 h-full transition-colors ${preferences.targeting ? 'bg-[#0341FF]' : 'bg-transparent'}`}></div>
