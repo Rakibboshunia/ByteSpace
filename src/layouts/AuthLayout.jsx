@@ -20,6 +20,7 @@ const AuthCourseCard = ({ title, author, rating, price, level, bgClass, style, c
         <span className="bg-white/70 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-semibold text-gray-700">2h 16m</span>
       </div>
     </div>
+    
     <div className="p-4 flex flex-col">
       <div className="flex justify-between items-start mb-1">
         <h3 className="font-extrabold text-[14px] text-gray-900 leading-tight shrink">{title}</h3>
@@ -27,12 +28,14 @@ const AuthCourseCard = ({ title, author, rating, price, level, bgClass, style, c
           {rating} <span className="text-yellow-400">★</span>
         </div>
       </div>
+      
       <p className="text-[11px] text-gray-400 mb-3">by <span className="text-[#0341FF] font-medium">{author}</span></p>
       <div className="flex items-center justify-between mb-3">
         <span className="flex items-center gap-1 text-[11px] font-semibold text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 20V10M18 20V4M6 20v-4" /></svg>
           {level}
         </span>
+        
         <div className="flex items-center">
           <div className="flex -space-x-2">
             {avatars4.map((img, i) => (
