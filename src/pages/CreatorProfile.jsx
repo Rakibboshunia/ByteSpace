@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Header/Navbar';
@@ -53,6 +54,7 @@ const CourseCard = ({ course }) => {
             ))}
           </div>
         </div>
+        
         <div className="p-5 flex-1 flex flex-col">
           <div className="flex items-start justify-between gap-3 mb-1">
             <h3 className="font-bold text-[16px] text-gray-900 leading-snug group-hover:text-[#0341FF] transition-colors line-clamp-2 flex-1">
