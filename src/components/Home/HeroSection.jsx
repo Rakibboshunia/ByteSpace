@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Header/Navbar';
+
 import heroImg from '../../assets/hero-image.png';
 import img1 from '../../assets/01.jpg';
 import img2 from '../../assets/02.jpg';
