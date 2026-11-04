@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import authChartImg from '../assets/auth-chart.jpg';
 import authBackImg from '../assets/09.jpg';
 import avatar1 from '../assets/img04.png';
@@ -96,6 +97,7 @@ const AuthLayout = ({ title, subtitle, children }) => {
               style={{ backgroundImage: `url(${authBackImg})` }}
               className="absolute left-[5%] top-[80px] -rotate-[8deg] z-10 transition-transform duration-500 hover:rotate-0 hover:z-30 hover:scale-105"
             />
+            
             {/* Front Card */}
             <AuthCourseCard
               title="The Power of Big Data"
