@@ -61,7 +61,6 @@ const CourseList = () => {
                     </div>
                   </div>
                 </div>
-                
                 <div className="mt-4 pt-4 border-t border-gray-100 flex items-center">
                   <span className="text-[20px] font-bold text-primary">{course.price}</span>
                   <span className="text-[13px] text-gray-500 ml-1">/lifetime</span>
