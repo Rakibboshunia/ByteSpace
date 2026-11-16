@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import authChartImg from '../assets/auth-chart.jpg';
 import authBackImg from '../assets/09.jpg';
 import avatar1 from '../assets/img04.png';
